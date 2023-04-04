@@ -1,0 +1,38 @@
+<div class="center-items col-category">
+    <div class="space-category-details" *ngFor="let category of descCategories">
+        <h3>{{category.name}}</h3>
+        <p>Nombres: {{category.total}}</p>
+        <p *ngIf="category.id == 0">Productions: {{category.total | pluralize : titlesList[4]:titlesList[5]}}</p>
+        <p *ngIf="category.id > 0">Productions: {{category.eachSecond | pluralize : titlesList[3]:titlesList[1]}}</p>
+    </div>
+</div>
+<div class="center-items centered-category">
+    <h2 class="title-frame">
+        <!-- {{totalGlobal | number}} {{titlesList[0]}} -->
+        {{totalGlobal | pluralize : titlesList[2]:titlesList[0]}}
+    </h2>
+    <span class="bakery-frame-color small-text" *ngIf="totalPerSecond > 0">
+        {{totalPerSecond | pluralize : titlesList[3]:titlesList[1]}}
+    </span>
+    <div class="center-items">
+        <a (click)="onClickBread()">
+            <img class="bread-clicker" [src]="breadClicker[0]" [alt]="breadClicker[1]" *ngIf="!bonusShop[1].bought"/>
+            <img class="bread-clicker" [src]="breadClicker[2]" [alt]="breadClicker[3]" *ngIf="bonusShop[1].bought"/>
+        </a>
+    </div>
+    <h3 class="bakery-frame-color">{{ titlesList[6]}}</h3>
+    <div class="center-items bonus-shop-frame">
+        <div class="center-items bonus-shop-spacing" *ngFor="let bonus of bonusShop">
+            <a [ngClass]="bonus.active? 'center-items bonus-button':'center-items bonus-button-disabled'"
+                (click)="buyBonus(bonus.name)">
+                <img [ngClass]="bonus.active? 'center-items img-button':'center-items img-button-disabled'"
+                    [src]="bonus.iconPath" [alt]="bonus.desc">
+            </a>
+            <span *ngIf="!bonus.bought">{{bonus.price}}</span>
+            <span *ngIf="bonus.bought">BUYED</span>
+        </div>
+    </div>
+</div>
+<div class="center-items col-category">
+    <button (click)="buyItem(type.id)" [disabled]="type.inactive" *ngFor="let type of categories">{{type.name}}</button>
+</div>

@@ -1,1 +1,274 @@
-/* You can add global styles to this file, and also import other style files */
+/* All app */
+body {
+    background-image: url("assets/img/wheat-bg.png");
+    background-repeat: repeat;
+    margin: 0;
+}
+
+/* Color variables */
+:root {
+    --bread-count: #F8BA1A;
+    --clear-text: #FFFFFF;
+    --text: #838383;
+    --disabled-button: #D0C9BF;
+    --enabled-text: #E1FAAD;
+    --enabled-button: #66AF2C;
+    --frame-color: #B5772E;
+    --shop-bg: #F7F1DB;
+    --bakery-bg: #FBFBF8;
+    --shadow: hsla(225, 100%, 0%, .15);
+}
+
+/* Text parameters by default */
+:host {
+    font-family: "Roboto Slab", "Roboto Light", "Roboto Medium", "Roboto SemiBold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    color: var(--text);
+}
+
+.all-screen {
+    height: 100vh;
+}
+
+/* Button behaviors */
+button {
+    width: 80%;
+    height: 10%;
+    margin: 9% 0;
+    font-family: "Roboto Medium", sans-serif;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--enabled-button);
+    color: var(--enabled-text);
+    box-shadow: 2px 2px 5px var(--shadow);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+button:hover, button:focus {
+    width: 81%;
+    height: 10.5%;
+    margin: 8.5% 0;
+    font-size: 1.15rem;
+}
+
+
+button:disabled {
+    background-color: var(--disabled-button);
+    color: var(--text);
+    cursor: default;
+}
+
+button:active {
+    width: 78%;
+    height: 9%;    
+    margin: 10% 0;
+    font-size: 1.05rem;
+}
+
+/* Titles */
+h1 {
+    font-family: "Roboto Slab", serif;
+    font-size: 2.2rem;
+    color: var(--clear-text);
+}
+
+h2 {
+    font-family: "Roboto Light", sans-serif;
+    font-size: 1.8rem;
+    color: var(--bread-count);
+    margin: 0;
+}
+
+h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-align: center;
+    margin: 0;
+}
+
+/* Simple text */
+p, span {
+    font-family: "Roboto Light", sans-serif;
+    font-size: .8rem;
+    color: var(--text);
+    margin: 0;
+}
+
+/* for the footer and the breads produced per second */
+.small-text {
+    font-size: .6rem;
+}
+
+/* center items inside an HTML element */
+.center-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Margin between details displayed within the left category loop */
+.space-category-details {
+    margin: 8% 0;
+}
+
+/* columns for the 3 categories inside the bakery */
+.col-category {
+    height: 100%;
+    width: 25%;
+    flex-direction: column;
+    float: left;
+}
+
+.centered-category {
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    float: left;
+}
+
+/* Bakery colors and size */
+.bakery-frame {
+    width: 850px;
+    height: 600px;
+    border: 5px var(--frame-color);
+    border-style: none solid none solid;
+}
+
+.bakery-top {
+    background-color: var(--frame-color);
+    width: 100%;
+    height: 15%;
+}
+
+.bakery-bottom {
+    background-color: var(--frame-color);
+    width: 100%;
+    height: 10%;
+    color: var(--clear-text);
+}
+
+.bakery-center {
+    height: 75%;
+    width: 100%;
+    background-color: var(--bakery-bg);
+}
+
+/* Within the central category */
+.title-frame {
+    background-color: var(--shop-bg);
+    width: 100%;
+    margin: 3% 0;
+    text-align: center;
+    padding: 2% 0;
+}
+
+.bonus-shop-frame {
+    background-color: var(--shop-bg);
+    width: 100%;
+    height: 20%;
+    margin-top: 2%;
+}
+
+.bakery-frame-color {
+    color: var(--frame-color);
+}
+
+.bonus-shop-spacing {
+    width: 22%;
+    float: left;
+    flex-direction: column;
+    display: flex;
+}
+
+/* Behavior for the bread image */
+.bread-clicker {
+    height: 100%;
+    width: 100%;
+    margin: 20% 0;
+    filter:drop-shadow(2px 2px 5px var(--shadow));
+transition: all .2s;
+    cursor: pointer;
+}
+
+.bread-clicker:hover, .bread-clicker:focus {
+    height: 105%;
+    width: 105%;
+    margin: 17% -2.5%;
+}
+
+.bread-clicker:active {
+    height: 98%;
+    width: 95%;
+    margin: 23.1% 2.5%;
+}
+
+/* Custom buttons for bonus shop */
+.bonus-button {
+    height:45px;
+    width: 45px;
+    border-radius: 100px;
+    margin: 7% 0;
+    background-color: var(--enabled-button);
+    box-shadow: 2px 2px 5px var(--shadow);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.bonus-button:hover, .bonus-button:focus {
+    width: 50px;
+    height: 50px;
+    margin: 5% 0;
+}
+
+
+.bonus-button-disabled {
+    height:45px;
+    width: 45px;
+    border-radius: 100px;
+    margin: 7% 0;
+    background-color: var(--disabled-button);
+    color: var(--text);
+    cursor: default;
+}
+
+.bonus-button:active {
+    width: 40px;
+    height: 40px;
+    margin: 10% 0;
+}
+
+.bonus-button-disabled {
+    height:45px;
+    width: 45px;
+    border-radius: 100px;
+    margin: 7% 0;
+    background-color: var(--disabled-button);
+    box-shadow: 2px 2px 5px var(--shadow);
+}
+
+/* Images inside bonus buttons */
+.img-button, .img-button-disabled {
+    height:29px;
+    width: 29px;
+    transition: all .2s;
+}
+
+.img-button:hover, .img-button:focus {
+    width: 32px;
+    height: 32px;
+}
+
+
+.img-button-disabled {
+    background-color: var(--disabled-button);
+    color: var(--text);
+    cursor: default;
+}
+
+.img-button:active {
+    width: 26px;
+    height: 26px;
+}
